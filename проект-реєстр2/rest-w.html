@@ -1,0 +1,105 @@
+<html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HeroFit – Створити акаунт</title>
+    <link rel="stylesheet" href="rest-b.css">
+</head>
+<body>
+
+  <div class="register-container">
+
+    <div class="register-card">
+
+      <div class="logo-hero">
+        <div class="logo-wrapper">
+          <div class="pulse-ring"></div>
+          <img src="лого.png" alt="HeroFit" class="hero-logo">
+        </div>
+        <div class="logo-text">HeroFit</div>
+      </div>
+
+      <h1>Створити акаунт</h1>
+      <p class="subtitle">Почніть свою подорож до героя</p>
+
+      <form>
+        <div class="input-group">
+          <label>Ім'я</label>
+          <div class="input-wrapper">
+            <img src="user.png" alt="" class="input-icon">
+            <input type="text" placeholder="Ваше ім'я" required>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label>Email</label>
+          <div class="input-wrapper">
+            <img src="імейл.png" alt="" class="input-icon">
+            <input type="email" placeholder="your@email.com" required>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label>Пароль</label>
+          <div class="input-wrapper">
+            <img src="замок.png" alt="" class="input-icon">
+            <input type="password" placeholder="Мінімум 6 символів" required>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label>Підтвердити пароль</label>
+          <div class="input-wrapper">
+            <img src="замок.png" alt="" class="input-icon">
+            <input type="password" placeholder="Повторіть пароль" required>
+          </div>
+        </div>
+
+        <label class="gender-label">Стать</label>
+        <div class="gender-select">
+          <button type="button" class="gender-btn active" onclick="selectGender(this)">
+            <span class="gender-emoji">👨</span>
+            Чоловік
+          </button>
+          <button type="button" class="gender-btn" onclick="selectGender(this)">
+            <span class="gender-emoji">👩</span>
+            Жінка
+          </button>
+        </div>
+
+        <button type="submit" class="btn-register">
+          Зареєструватися
+          <img src="arrow.png" alt="→" class="btn-arrow">
+        </button>
+      </form>
+
+      <ul class="benefits">
+        <li><img src="star.png" alt="" class="check-icon"> Відстежуйте свій прогрес</li>
+        <li><img src="star.png" alt="" class="check-icon"> Заробляйте Fire бали</li>
+        <li><img src="star.png" alt="" class="check-icon"> Змагайтеся з друзями</li>
+      </ul>
+
+      <div class="divider"><span>або</span></div>
+
+      <div class="login-link">
+        Вже є акаунт? <a href="#">Увійти</a>
+      </div>
+
+      <a href="#" class="back-link">
+        <img src="arrow-back.png" alt="←" class="back-icon">
+        Повернутися на головну
+      </a>
+
+    </div>
+  </div>
+
+  <script>
+    function selectGender(btn) {
+      document.querySelectorAll('.gender-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
