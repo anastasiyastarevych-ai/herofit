@@ -22,7 +22,7 @@
     <h1 class="welcome-title">З поверненням!</h1>
     <p class="subtitle">Увійдіть, щоб продовжити свою подорож</p>
 
-    <form>
+      <form id="login-form">
       <div class="input-group">
         <label for="email">Email</label>
         <div class="input-wrapper">
@@ -63,6 +63,44 @@
       Підказка: Просто зареєструйтесь з будь-яким email
     </div>
   </div>
+
+  <script>
+    const loginForm = document.getElementById('login-form');
+
+    loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value;
+
+        if (!email || !password) {
+            alert('Будь ласка, заповніть всі поля');
+            return;
+        }
+
+        const btn = loginForm.querySelector('.btn-login');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = 'Входимо...';
+        btn.disabled = true;
+
+        try {
+            // Імітація запиту (пізніше заміниш на fetch до бекенду)
+            await new Promise(resolve => setTimeout(resolve, 800));
+
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('userEmail', email);
+
+            alert('✅ Успішний вхід! Ласкаво просимо до HeroFit 🔥');
+            window.location.href = 'page-off.html';
+
+        } catch (err) {
+            alert('❌ Щось пішло не так. Перевірте дані.');
+        } finally {
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+        }
+    });
+  </script>
 
 </body>
 </html>
