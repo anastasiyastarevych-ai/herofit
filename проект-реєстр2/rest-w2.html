@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HeroFit – Створити акаунт</title>
-    <link rel="stylesheet" href="rest-b.css">
+    <link rel="stylesheet" href="rest-b2.css">
 </head>
 <body>
 
@@ -23,7 +23,7 @@
       <h1>Створити акаунт</h1>
       <p class="subtitle">Почніть свою подорож до героя</p>
 
-      <form>
+      <form id="register-form">
         <div class="input-group">
           <label>Ім'я</label>
           <div class="input-wrapper">
@@ -95,10 +95,68 @@
   </div>
 
   <script>
-    function selectGender(btn) {
-      document.querySelectorAll('.gender-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-    }
+      function selectGender(btn) {
+          document.querySelectorAll('.gender-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+      }
+
+      const registerForm = document.getElementById('register-form');
+
+      registerForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+
+          const nameInput = registerForm.querySelector('input[placeholder="Ваше ім\'я"]');
+          const emailInput = registerForm.querySelector('input[placeholder="your@email.com"]');
+          const passwordInputs = registerForm.querySelectorAll('input[type="password"]');
+
+          const name = nameInput.value.trim();
+          const email = emailInput.value.trim();
+          const password = passwordInputs[0].value;
+          const confirmPassword = passwordInputs[1].value;
+
+          const activeGenderBtn = document.querySelector('.gender-btn.active');
+          const gender = activeGenderBtn ? 
+              (activeGenderBtn.textContent.includes('Чоловік') ? 'male' : 'female') : null;
+
+          if (!name || !email || !password || !confirmPassword) {
+              alert('Будь ласка, заповніть всі поля');
+              return;
+          }
+          if (password !== confirmPassword) {
+              alert('Паролі не співпадають');
+              return;
+          }
+          if (password.length < 6) {
+              alert('Пароль має бути мінімум 6 символів');
+              return;
+          }
+          if (!gender) {
+              alert('Оберіть стать');
+              return;
+          }
+
+          const btn = registerForm.querySelector('.btn-register');
+          const originalText = btn.innerHTML;
+          btn.innerHTML = 'Реєструємо...';
+          btn.disabled = true;
+
+          try {
+              await new Promise(resolve => setTimeout(resolve, 1000));
+
+              localStorage.setItem('isLoggedIn', 'true');
+              localStorage.setItem('userEmail', email);
+              localStorage.setItem('userName', name);
+
+              alert('🎉 Акаунт створено! Тепер ти — герой HeroFit!');
+              window.location.href = 'page-off.html';
+
+          } catch (err) {
+              alert('❌ Помилка реєстрації');
+          } finally {
+              btn.innerHTML = originalText;
+              btn.disabled = false;
+          }
+      });
   </script>
 
 </body>
