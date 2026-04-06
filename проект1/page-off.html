@@ -38,68 +38,86 @@
         <div class="blurred-circles-background"></div>
     </section>
 
-<section class="features-section">
-    <div class="container features-container">
-        <h2>Чому HeroFit?</h2>
-        <p class="subtitle">
-            Фітнес — це не про ідеальні картинки. Це про реальні зусилля, піт та задоволення від результатів.
-        </p>
-        
-        <div class="features-grid">
-            <div class="feature-card" data-glow="green">
-                <div class="icon-glow-wrapper">
-                    <div class="icon-circle">
-                        <img src="rocket.png" alt="Гейміфікація" class="feature-icon">
+    <section class="features-section">
+        <div class="container features-container">
+            <h2>Чому HeroFit?</h2>
+            <p class="subtitle">
+                Фітнес — це не про ідеальні картинки. Це про реальні зусилля, піт та задоволення від результатів.
+            </p>
+            
+            <div class="features-grid">
+                <div class="feature-card" data-glow="green">
+                    <div class="icon-glow-wrapper">
+                        <div class="icon-circle">
+                            <img src="rocket.png" alt="Гейміфікація" class="feature-icon">
+                        </div>
                     </div>
+                    <h3>Гейміфікація</h3>
+                    <p>Звичайні тренування перетворюються на захопливу гру на основі поведінкової психології.</p>
                 </div>
-                <h3>Гейміфікація</h3>
-                <p>Звичайні тренування перетворюються на захопливу гру на основі поведінкової психології.</p>
-            </div>
 
-            <div class="feature-card" data-glow="blue">
-                <div class="icon-glow-wrapper">
-                    <div class="icon-circle">
-                        <img src="user.png" alt="Цифровий Аватар" class="feature-icon2">
+                <div class="feature-card" data-glow="blue">
+                    <div class="icon-glow-wrapper">
+                        <div class="icon-circle">
+                            <img src="user.png" alt="Цифровий Аватар" class="feature-icon2">
+                        </div>
                     </div>
+                    <h3>Цифровий Аватар</h3>
+                    <p>Кожне реальне тренування підвищує силу та рівень вашого героя.</p>
                 </div>
-                <h3>Цифровий Аватар</h3>
-                <p>Кожне реальне тренування підвищує силу та рівень вашого героя.</p>
-            </div>
 
-            <div class="feature-card" data-glow="orange">
-                <div class="icon-glow-wrapper">
-                    <div class="icon-circle">
-                        <img src="flame.png" alt="Система Енергії Fire" class="feature-icon3">
+                <div class="feature-card" data-glow="orange">
+                    <div class="icon-glow-wrapper">
+                        <div class="icon-circle">
+                            <img src="flame.png" alt="Система Енергії Fire" class="feature-icon3">
+                        </div>
                     </div>
+                    <h3>Система Енергії Fire</h3>
+                    <p>Користувачі заробляють "Fire" бали (внутрішня валюта) за виконані тренування.</p>
                 </div>
-                <h3>Система Енергії Fire</h3>
-                <p>Користувачі заробляють "Fire" бали (внутрішня валюта) за виконані тренування.</p>
-            </div>
 
-            <div class="feature-card" data-glow="green">
-                <div class="icon-glow-wrapper">
-                    <div class="icon-circle">
-                        <img src="stongs.png" alt="Трекер Прогресу" class="feature-icon">
+                <div class="feature-card" data-glow="green">
+                    <div class="icon-glow-wrapper">
+                        <div class="icon-circle">
+                            <img src="stongs.png" alt="Трекер Прогресу" class="feature-icon">
+                        </div>
                     </div>
+                    <h3>Трекер Прогресу</h3>
+                    <p>Візуалізація метрик тіла та статистики тренувань з динамічними графіками.</p>
                 </div>
-                <h3>Трекер Прогресу</h3>
-                <p>Візуалізація метрик тіла та статистики тренувань з динамічними графіками.</p>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="cta-section">
-    <div class="container cta-container">
-        <h2>Готовий стати героєм?</h2>
-        <p>HeroFit — твоя історія успіху починається зараз.</p>
-        
-        <a href="#" class="btn btn-cta">
-            Розпочати Подорож 
-            <img src="arrow.png" alt="стрілка" class="btn-arrow2">
-        </a>
-    </div>
-</section>
+    <section class="cta-section">
+        <div class="container cta-container">
+            <h2>Готовий стати героєм?</h2>
+            <p>HeroFit — твоя історія успіху починається зараз.</p>
+            
+            <a href="#" class="btn btn-cta">
+                Розпочати Подорож 
+                <img src="arrow.png" alt="стрілка" class="btn-arrow2">
+            </a>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const registerBtn = document.querySelector('.btn-register');
+            if (registerBtn) {
+                registerBtn.href = 'rest-w2.html';
+            }
+
+            const startBtn = document.querySelector('.btn-primary');
+            if (startBtn) {
+                startBtn.href = 'restr-w.html';
+            }
+
+            if (localStorage.getItem('isLoggedIn') === 'true') {
+                console.log('✅ Користувач увійшов як:', localStorage.getItem('userEmail'));
+            }
+        });
+    </script>
 
 </body>
 </html>
